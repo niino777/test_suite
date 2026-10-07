@@ -19,6 +19,7 @@
     "test:e2e:catalog": "node scripts/cypress.js run --spec cypress/e2e/catalog.cy.js",
     "test:e2e:purchase": "node scripts/cypress.js run --spec cypress/e2e/purchase.cy.js",
     "e2e": "start-server-and-test serve http-get://127.0.0.1:8080 test:e2e:run",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
