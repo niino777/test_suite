@@ -1,4 +1,4 @@
-name: CI/CD Vue y Cypress
+name: CI/CD Vue CLI y Cypress
 
 on:
   push:
@@ -24,15 +24,11 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Ejecutar pruebas de Cypress
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run dev
-          wait-on: 'http://localhost:8080'
-          browser: chrome
+      - name: Verificar Cypress
+        run: npm run cy:verify
 
-      - name: Compilar proyecto
-        run: npm run build
+      - name: Ejecutar pruebas E2E (Cypress)
+        run: npm run e2e
 
       - name: Desplegar en GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
